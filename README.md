@@ -5,9 +5,9 @@ This method performs joint localization and data association by means of an opti
 
 ## Run the code
 To run a simple experiment, where TDOAs are measured from a number of *R* simulated receiver positions and *S* simulated source positions, run the script 
-...
+```
 simple_experiment.m
-...
+```
 The TDOA measurements *tdoas_measured* and the receiver positions *r* can also be provided if a true experiment has been run. The method then computes and outputs the source positions.
 
 If the true source positions *s* and the true TDOA values are known, the parameter *exists_gt* can be set to 1, and then the Euclidean error for the result as well as the CRLB value for the setup are also provided. This is default for the simulated setting.
@@ -16,14 +16,25 @@ The
 
 ### Experiment from the paper
 The script
-...
+```
 exp_err_wrt_tdoapert_2024.m
-...
+```
 reproduces the experiment in the paper where the error of the proposed method is evaluated for different levels of noise in the TDOA measurements. Here, the results for the method SMTL[^3] is also included, for comparison. Note that this is our implementation of that method. This does require the Matlab package CVX[^4]. For information on how to install this, please visit their [homepage](https://cvxr.com/cvx). Un disable the SMTL computations, comment out line 174
-...
+```
 SMTL_mean_distance = get_SMTL_mean_distance(ggrid,r,s,S,tdoas_measured, SMTL_lambda);
-...
+```
 
+## Citation 
+If you use this in your research, please cite
+```
+@inproceedings{flood2024multi,
+  title={Multi-Source Localization and Data Association for Time-Difference of Arrival Measurements},
+  author={Flood, Gabrielle and Elvander, Filip},
+  booktitle={2024 32th European Signal Processing Conference (EUSIPCO)},
+  year={2024},
+  organization={IEEE}
+}
+```
 
 [^1]: Flood, G. and Elvander, F., 2024. Multi-Source Localization and Data Association for Time-Difference of Arrival Measurements. In *Proceedings of European Signal Processing Conference (EUSIPCO)*.
 [^2]: Åström, K., Larsson, M., Flood, G. and Oskarsson, M., 2021.Extension of time-difference-of-arrival self calibration solutions using robust multilateration. In *Proceedings of European Signal Processing Conference (EUSIPCO)*, pp. 870–874.
