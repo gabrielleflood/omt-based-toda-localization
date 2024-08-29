@@ -1,11 +1,11 @@
-# Optimal Mass Transport Based TDOA Localization
+# Optimal Mass Transport Based TDOA Multi-Source Localization
 Repository for Matlab code for the paper [Multi-Source Localization and Data Association for Time-Difference of Arrival Measurements](https://arxiv.org/abs/2403.10329)[^1]. The problem considered is that of localizing multiple signal sources based on time-difference of arrival (TDOA) measurements. The source positions and signals are unknown, while the receiver positions are assumed to be known as well as the TDOA measurements (which e.g. can be achieved by correlating received signals).
 
 <p align="center">
   <img src="figures/problem_overview.png" width="500"/>
 </p>
 
-The figure above illustrates the problem. Two signal sources are observed by four receivers, with hyperbolas corresponding to source locations consistent with TDOA measurements. In the left figure, the hyperbolas (TDOAs) are labelled according to source. To there right, we have unknown labels, corresponding to the localization and data association problem.
+The figure above illustrates the problem. Two signal sources are observed by four receivers, with hyperbolas corresponding to source locations consistent with TDOA measurements. In the left figure, the hyperbolas (TDOAs) are labelled according to source. To the right, we have unknown labels, corresponding to the localization and data association problem.
 
 This method performs joint localization and data association by means of an optimal mass transport formulation. The method can be divided into two steps. First, a candidate source position set is constructed using a multilateration solver[^2] based on minimal sets of receiver pairs. Then, the best candidate positions are found together with the association between these positions and the measured TDOA values. Finally, as the association is found, local optimization can be performed, minimizing the error between the measured TDOAs and the relative distances between the found source positions and the receivers. An overview of the method can be seen below.
 
